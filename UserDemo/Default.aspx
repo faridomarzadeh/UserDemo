@@ -28,19 +28,28 @@
         <ItemTemplate>
             <tr>
                 <td>
-                    <asp:Label runat="server" ID="lblFirstName" Text='<%# Eval("FirstName") %>' />
+                    <asp:Label runat="server" ID="lblFirstName" Text='<%# Eval("FirstName") %>'
+                        style="padding:0 2rem;"/>
                 </td>
                 <td>
-                    <asp:Label runat="server" ID="lblLastName" Text='<%# Eval("LastName") %>' />
+                    <asp:Label runat="server" ID="lblLastName" Text='<%# Eval("LastName") %>' 
+                        style="padding:0 2rem;"
+                        />
                 </td>
                 <td>
-                    <asp:Label runat="server" ID="lblRegistrationDate" Text='<%# Eval("RegistrationDate") %>' />
+                    <asp:Label runat="server" ID="lblRegistrationDate" Text='<%# ((DateTime)Eval("RegistrationDate")).ToString("MMMM dd, yyyy") %>' 
+                        style="padding:0 2rem;"
+                        />
                 </td>
                 <td>
-                    <asp:Label runat="server" ID="lblLastLogin" Text='<%# Eval("LastLogin") %>' />
+                    <asp:Label runat="server" ID="lblLastLogin" Text='<%# Eval("LastLogin") %>'
+                        style="padding:0 2rem;"
+                        />
                 </td>
                 <td>
-                    <asp:Label runat="server" ID="lblTotalLogins" Text='<%# Eval("TotalLogins") %>' />
+                    <asp:Label runat="server" ID="lblTotalLogins" Text='<%# Eval("TotalLogins") %>' 
+                        style="padding:0 2rem;"
+                        />
                 </td>
             </tr>
         </ItemTemplate>
