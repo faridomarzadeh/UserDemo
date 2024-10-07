@@ -11,14 +11,19 @@ namespace UserDemo
         {
             ConfiguRoutes();
             Migrate();
-            var container = Application.GetContainer();
-            UnityConfig.RegisterTypes(container);
+            ContainerConfig();
         }
         private void ConfiguRoutes()
         {
             System.Web.Routing.RouteTable.Routes.MapPageRoute("Login", "Login", "~/Pages/Login.aspx");
             System.Web.Routing.RouteTable.Routes.MapPageRoute("Register", "Register", "~/Pages/Register.aspx");
 
+        }
+
+        private void ContainerConfig()
+        {
+            var container = Application.GetContainer();
+            UnityConfig.RegisterTypes(container);
         }
 
         private void Migrate()

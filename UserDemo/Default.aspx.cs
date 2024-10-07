@@ -24,24 +24,6 @@ namespace UserDemo
         [Dependency]
         public IUserService UserService { get; set; }
 
-
-        public int PageNumber
-        {
-            get
-            {
-                if (ViewState["PageNumber"] != null)
-                {
-                    return Convert.ToInt32(ViewState["PageNumber"]);
-                }
-                else
-                {
-                    return 0;
-                }
-            }
-            set { ViewState["PageNumber"] = value; }
-        }
-
-
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
@@ -69,12 +51,12 @@ namespace UserDemo
 
         private void FetchData(int pageNumber, int numberofRows)
         {
-                var query = UserContext.GetUserReports(pageNumber, numberofRows);
+                var reports = UserContext.GetUserReports(pageNumber, numberofRows);
 
                 PagedDataSource page = new PagedDataSource();
                 page.AllowCustomPaging = true;
                 page.AllowPaging = true;
-                page.DataSource = query;
+                page.DataSource = reports;
                 page.PageSize = 5;
                 Repeater1.DataSource = page;
                 Repeater1.DataBind();
